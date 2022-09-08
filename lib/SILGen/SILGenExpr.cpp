@@ -2245,17 +2245,17 @@ RValue RValueEmitter::visitTupleExpr(TupleExpr *E, SGFContext C) {
   }
 
   llvm::SmallVector<RValue, 8> tupleElts;
-  bool hasAtleastOnePlusOneValue = false;
+  bool hasAt leastOnePlusOneValue = false;
   for (Expr *elt : E->getElements()) {
     RValue RV = SGF.emitRValue(elt);
-    hasAtleastOnePlusOneValue |= RV.isPlusOne(SGF);
+    hasAt leastOnePlusOneValue |= RV.isPlusOne(SGF);
     tupleElts.emplace_back(std::move(RV));
   }
 
   // Once we have found if we have any plus one arguments, add each element of
   // tuple elts into result, making sure each value is at plus 1.
   RValue result(type);
-  if (hasAtleastOnePlusOneValue) {
+  if (hasAt leastOnePlusOneValue) {
     for (unsigned i : indices(tupleElts)) {
       result.addElement(std::move(tupleElts[i]).ensurePlusOne(SGF, E));
     }
