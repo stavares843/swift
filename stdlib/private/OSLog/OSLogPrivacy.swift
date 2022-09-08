@@ -138,7 +138,7 @@ public struct OSLogPrivacy {
   @inlinable
   @_semantics("constant_evaluable")
   @_optimize(none)
-  internal var isAt leastPrivate: Bool {
+  internal var isAtleastPrivate: Bool {
     switch privacy {
     case .public:
       return false
