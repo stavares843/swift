@@ -284,7 +284,7 @@ protocol Existential {
   mutating func mutateIt() -> Bool
 }
 
-func next(_ x: inout Int, up to mod: Int) {
+func next(_ x: inout Int, upto mod: Int) {
   x = (x + 1) % (mod + 1)
 }
 
@@ -310,7 +310,7 @@ struct Val1 : Existential {
     return true
   }
   mutating func mutateIt() -> Bool {
-    next(&f0, up to: 1)
+    next(&f0, upto: 1)
     return true
 	}
 }
@@ -326,8 +326,8 @@ struct Val2 : Existential {
     return f0 == 0 && f1 == 3
   }
   mutating func mutateIt() -> Bool {
-    next(&f0, up to: 1)
-    next(&f1, up to: 3)
+    next(&f0, upto: 1)
+    next(&f1, upto: 3)
     return true
 	}
 }
@@ -344,9 +344,9 @@ struct Val3 : Existential {
     return f0 == 0 && f1 == 3 && f2 == 7
   }
   mutating func mutateIt() -> Bool {
-    next(&f0, up to: 1)
-    next(&f1, up to: 3)
-    next(&f2, up to: 7)
+    next(&f0, upto: 1)
+    next(&f1, upto: 3)
+    next(&f2, upto: 7)
     return true
 	}
 }
@@ -364,10 +364,10 @@ struct Val4 : Existential {
     return f0 == 0 && f1 == 3 && f2 == 7 && f3 == 13
   }
   mutating func mutateIt() -> Bool {
-    next(&f0, up to: 1)
-    next(&f1, up to: 3)
-    next(&f2, up to: 7)
-    next(&f3, up to: 13)
+    next(&f0, upto: 1)
+    next(&f1, upto: 3)
+    next(&f2, upto: 7)
+    next(&f3, upto: 13)
     return true
 	}
 }
@@ -383,8 +383,8 @@ class Klazz { // body same as Val2
    return f0 == 0 && f1 == 3
   }
   func mutateIt() -> Bool{
-    next(&f0, up to: 1)
-    next(&f1, up to: 3)
+    next(&f0, upto: 1)
+    next(&f1, upto: 3)
     return true
 	}
 }
