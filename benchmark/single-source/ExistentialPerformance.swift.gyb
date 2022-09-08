@@ -165,7 +165,7 @@ protocol Existential {
   mutating func mutateIt() -> Bool
 }
 
-func next(_ x: inout Int, up to mod: Int) {
+func next(_ x: inout Int, upto mod: Int) {
   x = (x + 1) % (mod + 1)
 }
 
@@ -184,7 +184,7 @@ struct ${V} : Existential {${
       'true'}
   }
   mutating func mutateIt() -> Bool {${
-    ''.join(['\n    next(&f{0}, up to: {1})'.format(vi, (v if v > 0 else 1))
+    ''.join(['\n    next(&f{0}, upto: {1})'.format(vi, (v if v > 0 else 1))
                for (vi, v) in Vars[0:i]])}
     return true
 	}
@@ -202,8 +202,8 @@ class Klazz { // body same as Val2
    return f0 == 0 && f1 == 3
   }
   func mutateIt() -> Bool{
-    next(&f0, up to: 1)
-    next(&f1, up to: 3)
+    next(&f0, upto: 1)
+    next(&f1, upto: 3)
     return true
 	}
 }
